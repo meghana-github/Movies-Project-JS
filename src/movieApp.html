@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Learning is Fun</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon-img.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    <script src="./movieApp.js"></script>
+    <style>
+        body {
+            background-color:beige; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui container" style="margin-top: 20px;">
+        <h1 class="ui header" style="text-align: center; color:olive;">Movie Search App</h1><br>
+        <div class="ui grid">
+            <div class="inline fields">
+                <label style="font-family: 'Arial', sans-serif; font-size: 16px;"><b>Select a Language:</b></label>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="frequency" value="International" onchange="selectedRadioOption()">
+                                <label>International</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="frequency" value="Hindi" onchange="selectedRadioOption()">
+                                <label>Hindi</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="frequency" value="Both" onchange="selectedRadioOption()">
+                                <label>Both</label>
+                        </div>
+                    </div>
+                </div>
+            <!-- Select Decade Dropdown -->
+            <div class="inline fields">
+                <div class="field">
+                    <label for="decadeDropdown" style="font-family: 'Arial', sans-serif; font-size: 16px;"><b>Select Decade:</b></label><br>
+                        <select id="decadeFilter" class="ui dropdown"  style="width: 300px;">
+                            <!-- Decades will be populated here dynamically -->
+                        </select>
+                </div>
+            </div>
+            
+            <!-- Select Genres -->
+            <div class="field">
+                <label style="font-family: 'Arial', sans-serif; font-size: 16px;"><b>Select Genres:</b><br></label>
+                    <div class="ui checkbox dark-border">
+                        <input type="checkbox" name="genres" value="Drama">
+                        <label>Drama</label>
+                    </div>
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="genres" value="Action">
+                        <label>Action</label>
+                    </div>
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="genres" value="Comedy">
+                        <label>Comedy</label>
+                    </div>
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="genres" value="Romance">
+                        <label>Romance</label>                  
+                    </div>
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="genres" value="Horror">
+                        <label>Horror</label>               
+                    </div>
+            </div>
+        </div>
+            <!-- Search Button -->
+            
+        <button type="button" class="button" onclick="checkFilters()" class="ui button">Search</button>
+            <!-- Content Area -->
+        <div id="content" style="margin-top: 20px;">
+                <!-- Result will be displayed here -->
+        </div>
+    </div>
+
+</body>
+</html>
