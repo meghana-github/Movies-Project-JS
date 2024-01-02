@@ -71,14 +71,20 @@
                         <input type="checkbox" name="genres" value="Horror">
                         <label>Horror</label>               
                     </div>
+                </div>
             </div>
         </div>
-            <!-- Search Button -->
-            
-        <button type="button" class="button" onclick="checkFilters()" class="ui button">Search</button>
+            <!-- Search Button -->          
+        <button type="button" class="button" onclick="checkFilters()" class="ui button">Submit</button>
             <!-- Content Area -->
         <div id="content" style="margin-top: 20px;">
                 <!-- Result will be displayed here -->
+        </div>
+        <div>
+            <h3>Search By Movie Name or Cast Member</h3>
+                <input type="text" style="width: 300px;" placeholder="Enter Movie Name or Cast Name" id="inputText"><br>
+                <button onclick="filterMoviesByName()">Search</button>
+            <div id="content" style="margin-top: 20px;">
         </div>
     </div>
 

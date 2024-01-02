@@ -5,6 +5,8 @@ let filteredMovies;
 let finalMovieIds;
 let hindiMovies;
 let filteredMoviesByGenre;
+let filteredMoviesByName;
+let filteredMoviesByNameIds;
 const apiKey = '42ee719896b25f8821890615eeabf17f';
 const movieUrl = 'https://api.themoviedb.org/3/movie/';
 const imageUrl = 'https://image.tmdb.org/t/p/original';
@@ -97,11 +99,29 @@ function checkFilters(){
     filteredMovieIds = filteredMoviesByGenresId.filter(movie => filteredMovieIds.includes(movie))
     finalMovieIds = movieIds.filter(movie => filteredMovieIds.includes(movie));       
     console.log('Final Movie Ids:',finalMovieIds); 
-    getMovieInformation();
+    getMovieInformation(finalMovieIds);
 }
 
-function getMovieInformation() {
-    const fetchArray = finalMovieIds.map(movieId => {
+function filterMoviesByName() {
+    const filterText = document.getElementById('inputText').value.toLowerCase();
+    const filteredInternationalMovies = data.movies.filter(movie =>
+      movie.title.toLowerCase().startsWith(filterText) ||
+      movie.cast.some(actor => actor.name.toLowerCase().startsWith(filterText))
+    );
+    const filteredHindiMovies = hindiMovies.filter(movie =>
+      movie.title.toLowerCase().startsWith(filterText) ||
+      movie.cast.some(actor => actor.name.toLowerCase().startsWith(filterText))
+    );
+        filteredMoviesByName = filteredInternationalMovies.concat(filteredHindiMovies);   
+        document.getElementById('content').innerHTML = getMovieHtml(filteredMoviesByName);
+        filteredMoviesByNameIds = filteredMoviesByName.map(movie => movie.tmdbId);
+        console.log('filteredMoviesByName:',filteredMoviesByName);
+        getMovieInformation(filteredMoviesByNameIds);
+        
+    }
+
+function getMovieInformation(filterIds) {
+    const fetchArray = filterIds.map(movieId => {
         return (fetch(`${movieUrl}${movieId}?api_key=${apiKey}`)
             .then(response => response.json()));
     });
@@ -127,9 +147,8 @@ function getMovieHtml(moviesInfo) {
         return html + `
             <div class="card">
                 <div class="image">
-                    <a href='./movie.html?id=${movie.id}&posterPath=${movie.posterPath}'>
+                    <href='./movie.html?id=${movie.id}&posterPath=${movie.posterPath}'>
                         <img src='${imageUrl}${movie.posterPath}' />
-                    </a>
                 </div>
                 <div class="content">
                     <div class="header">${movie.title}</div>
