@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Learning is Fun</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon-img.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    <script src="./filterByGenres.js"></script>
+  </head>
+  <body>
+    <h3><b>Select Genres:</b></h3>
+    <div class="ui checkbox">
+        <input type="checkbox" name="genres" value="Drama">
+        <label>Drama</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" name="genres" value="Action">
+      <label>Action</label>
+    </div>
+    <div class="ui checkbox">
+        <input type="checkbox" name="genres" value="Comedy">
+        <label>Comedy</label>
+    </div>
+    <div class="ui checkbox">
+        <input type="checkbox" name="genres" value="Romance">
+        <label>Romance</label>
+    </div>
+    <div class="ui checkbox">
+        <input type="checkbox" name="genres" value="Horror">
+        <label>Horror</label>
+    </div>
+    <br>
+    <button type="button" onclick="selectedCheckBox()">Submit</button>
+    <br/>
+    <div id="content">
+        <!-- Result will be displayed here -->
+    </div>
+  </body>
