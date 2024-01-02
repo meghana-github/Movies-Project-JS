@@ -127,9 +127,8 @@ function getMovieHtml(moviesInfo) {
         return html + `
             <div class="card">
                 <div class="image">
-                    <a href='./movie.html?id=${movie.id}&posterPath=${movie.posterPath}'>
+                    <href='./movie.html?id=${movie.id}&posterPath=${movie.posterPath}'>
                         <img src='${imageUrl}${movie.posterPath}' />
-                    </a>
                 </div>
                 <div class="content">
                     <div class="header">${movie.title}</div>
