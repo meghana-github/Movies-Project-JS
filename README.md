@@ -24,5 +24,9 @@ The Movie App is a user-friendly web application designed to provide a tailored 
 - Select the genres you're interested in.
 - The movie list will update dynamically based on your genre selections.
 
-### Search
-- After all the filters selected, click on search button to display the final movies that gets filtered based on the users choice.
+### Display Movies
+- After all the filters selected, click on submit button to display the final movies that gets filtered based on the users choice.
+
+### Search Movies By Movie Name or Cast Member
+- Enter the movie name or cast member name and click on search button to display the movies starting with the entered text or the movie having the searched Cast member.
+
